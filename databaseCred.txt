@@ -1,0 +1,6 @@
+Database name:
+kopotron_threecard
+User:
+kopotron_admin
+password:
+threecard369

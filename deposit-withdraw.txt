@@ -1,0 +1,6 @@
+withdrawamount, withdraw method, account type - personal/agent, account number, pswd, 
+withdrawal form
+
+deposit ammount, select method, select number, send from 
+
+number input limited 

@@ -1,0 +1,96 @@
+// Get LastPlayer Chaal info and show the chaal, throwcoin animation and potcoin
+            string GamePlayRecord = "https://kopotron.com/php_rest_threecards/api/GamePlay/GetGamePlay.php?RoomId=" + RoomId.text;
+            UnityWebRequest gameplay = UnityWebRequest.Get(GamePlayRecord);
+            yield return gameplay.SendWebRequest();
+            if (gameplay.isNetworkError || gameplay.isHttpError)
+            {
+                Debug.LogError(gameplay.error);
+                yield break;
+            }
+            GamePlayInfo playInfo = new GamePlayInfo();
+            playInfo = GamePlayInfo.CreateFromJSON(gameplay.downloadHandler.text);
+            if(Seat2.text==playInfo.LastPlayer)
+            {
+                if(playInfo.PlayType!="Packed")
+                {
+                    // Show throw of coin
+                    txtThrowCoin2.text = playInfo.ChaalCoin.ToString();
+                    //P2PotCoin.SetActive(false);
+                    P2PotCoin.SetActive(true);
+                    P2Coin = P2PotCoin.GetComponent<Animator>();
+                    if (P2Coin != null)
+                    {
+                        P2Coin.SetBool("Throw", true);
+                    }
+                }
+                
+                // update potcoin
+                txtPotCoin.text = playInfo.PotCoin.ToString();
+                // Show what chaal Player Played
+                ShowChaal2.SetActive(true);
+                txtChaal2.text = playInfo.PlayType;
+                chaal2.SetBool("Show", true);
+            }
+            if (Seat3.text == playInfo.LastPlayer)
+            {
+                if (playInfo.PlayType != "Packed")
+                {
+                    // Show throw of coin
+                    txtThrowCoin3.text = playInfo.ChaalCoin.ToString();
+                    //P3PotCoin.SetActive(false);
+                    P3PotCoin.SetActive(true);
+                    P3Coin = P3PotCoin.GetComponent<Animator>();
+                    if (P3Coin != null)
+                    {
+                        P3Coin.SetBool("Throw", true);
+                    }
+                }
+                // update potcoin
+                txtPotCoin.text = playInfo.PotCoin.ToString();
+                // Show what chaal Player Played
+                ShowChaal3.SetActive(true);
+                txtChaal3.text = playInfo.PlayType;
+                chaal3.SetBool("Show", true);
+            }
+            if (Seat4.text == playInfo.LastPlayer)
+            {
+                if (playInfo.PlayType != "Packed")
+                {
+                    // Show throw of coin
+                    txtThrowCoin4.text = playInfo.ChaalCoin.ToString();
+                    //P4PotCoin.SetActive(false);
+                    P4PotCoin.SetActive(true);
+                    P4Coin = P4PotCoin.GetComponent<Animator>();
+                    if (P4Coin != null)
+                    {
+                        P4Coin.SetBool("Throw", true);
+                    }
+                }
+                // update potcoin
+                txtPotCoin.text = playInfo.PotCoin.ToString();
+                // Show what chaal Player Played
+                ShowChaal4.SetActive(true);
+                txtChaal4.text = playInfo.PlayType;
+                chaal4.SetBool("Show", true);
+            }
+            if (Seat5.text == playInfo.LastPlayer)
+            {
+                if (playInfo.PlayType != "Packed")
+                {
+                    // Show throw of coin
+                    txtThrowCoin5.text = playInfo.ChaalCoin.ToString();
+                    //P5PotCoin.SetActive(false);
+                    P5PotCoin.SetActive(true);
+                    P5Coin = P5PotCoin.GetComponent<Animator>();
+                    if (P5Coin != null)
+                    {
+                        P5Coin.SetBool("Throw", true);
+                    }
+                }
+                // update potcoin
+                txtPotCoin.text = playInfo.PotCoin.ToString();
+                // Show what chaal Player Played
+                ShowChaal5.SetActive(true);
+                txtChaal5.text = playInfo.PlayType;
+                chaal5.SetBool("Show", true);
+            }
